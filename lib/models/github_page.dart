@@ -1,10 +1,12 @@
-import 'package:dart_json/dart_json.dart';
+import 'package:dart_json_mapper/dart_json_mapper.dart'
+    show JsonMapper, jsonSerializable, JsonProperty;
 import '../models/star.dart';
 
+@jsonSerializable
 class GithubPage {
-  @JsonProperty("total_count")
-  String totalCount;
+  @JsonProperty(name: "total_count")
+  int totalCount;
 
-  @JsonProperty("items")
-  List<Star> items;
+  @JsonProperty(name: "items")
+  List<dynamic> items;
 }

@@ -1,9 +1,11 @@
-import 'package:dart_json/dart_json.dart';
+import 'package:dart_json_mapper/dart_json_mapper.dart'
+    show JsonMapper, jsonSerializable, JsonProperty;
 
+@jsonSerializable
 class Owner {
-  @JsonProperty("avatar_url")
+  @JsonProperty(name: "avatar_url")
   String avatarUrl;
 
-  @JsonProperty("url")
+  @JsonProperty(name: "url")
   String githubUrl;
 }

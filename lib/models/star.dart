@@ -1,17 +1,18 @@
-import 'package:dart_json/dart_json.dart';
-
+import 'package:dart_json_mapper/dart_json_mapper.dart'
+    show JsonMapper, jsonSerializable, JsonProperty;
 import '../models/owner.dart';
 
+@jsonSerializable
 class Star {
-  @JsonProperty("id")
+  @JsonProperty(name: "id")
   int id;
 
-  @JsonProperty("name")
+  @JsonProperty(name: "name")
   String name;
 
-  @JsonProperty("fullname")
+  @JsonProperty(name: "fullname")
   String fullname;
 
-  @JsonProperty("owner")
+  @JsonProperty(name: "owner")
   Owner owner;
 }
