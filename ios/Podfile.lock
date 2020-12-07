@@ -1,0 +1,22 @@
+PODS:
+  - alert (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - alert (from `.symlinks/plugins/alert/ios`)
+  - Flutter (from `Flutter`)
+
+EXTERNAL SOURCES:
+  alert:
+    :path: ".symlinks/plugins/alert/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  alert: fa3137f80aa8ff29c8efbee8df29648605f622f7
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.9.3

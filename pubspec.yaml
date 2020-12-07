@@ -27,6 +27,7 @@ dependencies:
   http: ^0.12.2
   color_to_material: ^0.0.1
   dart_json_mapper: ^1.7.4
+  alert: ^1.0.1
   dart_json_mapper_flutter:
 
   # The following adds the Cupertino Icons font to your application.

@@ -1,3 +1,4 @@
+import 'package:alert/alert.dart';
 import 'package:flutter/material.dart';
 import 'package:github_stars/providers/stars_provider.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,9 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         _isLoading = false;
       });
+    }).catchError((e) {
+      Alert(message: 'Error: ${e.toString()}').show();
+      print(e.toString());
     });
 
     return Scaffold(
