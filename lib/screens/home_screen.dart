@@ -12,8 +12,11 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _isLoading = true;
 
   @override
-  Widget build(BuildContext context) {
-    Provider.of<StarsProvider>(context).pageResponse.then((value) {
+  void initState() {
+    super.initState();
+    Provider.of<StarsProvider>(context, listen: false)
+        .pageResponse
+        .then((value) {
       print(value.items[0].fullname);
       setState(() {
         _isLoading = false;
@@ -22,7 +25,10 @@ class _HomeScreenState extends State<HomeScreen> {
       Alert(message: 'Error: ${e.toString()}').show();
       print(e.toString());
     });
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Github Stars"),
