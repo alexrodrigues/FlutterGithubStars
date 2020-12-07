@@ -14,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     Provider.of<StarsProvider>(context).pageResponse.then((value) {
-      print(value.toString());
+      print(value.items[0].fullname);
       setState(() {
         _isLoading = false;
       });
