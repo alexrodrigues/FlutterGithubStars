@@ -17,16 +17,25 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    _fetchData();
+  }
+
+  void _fetchData() {
+    _showLoading(true);
     Provider.of<StarsProvider>(context, listen: false)
         .pageResponse
         .then((value) {
       vos = value.items;
-      setState(() {
-        _isLoading = false;
-      });
+      _showLoading(false);
     }).catchError((e) {
       Alert(message: 'Error: ${e.toString()}').show();
       print(e.toString());
+    });
+  }
+
+  void _showLoading(bool isLoading) {
+    setState(() {
+      this._isLoading = isLoading;
     });
   }
 
@@ -35,6 +44,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Github Stars"),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.refresh),
+            onPressed: () {
+              _fetchData();
+            },
+          )
+        ],
       ),
       body: _isLoading
           ? Container(
