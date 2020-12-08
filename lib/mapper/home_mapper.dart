@@ -18,7 +18,7 @@ StarsVo startToVo(Map star) {
   return StarsVo(
     star['id'],
     star['name'],
-    star['name'],
-    OwnerVo(star['owner']['avatarUrl'], star['owner']['githubUrl']),
+    star['full_name'],
+    OwnerVo(star['owner']['avatar_url'], star['owner']['url']),
   );
 }

@@ -1,6 +1,8 @@
 import 'package:alert/alert.dart';
 import 'package:flutter/material.dart';
+import 'package:github_stars/models/vo/stars_vo.dart';
 import 'package:github_stars/providers/stars_provider.dart';
+import 'package:github_stars/widgets/github_item.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool _isLoading = true;
+  List<StarsVo> vos = List();
 
   @override
   void initState() {
@@ -17,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Provider.of<StarsProvider>(context, listen: false)
         .pageResponse
         .then((value) {
-      print(value.items[0].fullname);
+      vos = value.items;
       setState(() {
         _isLoading = false;
       });
@@ -40,8 +43,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: CircularProgressIndicator(),
               ),
             )
-          : Container(
-              color: Colors.black87,
+          : ListView.builder(
+              itemCount: vos.length,
+              itemBuilder: (ctx, index) {
+                return GithubItem(vos[index]);
+              },
             ),
     );
   }
