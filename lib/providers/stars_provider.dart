@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:github_stars/mapper/home_mapper.dart';
-import 'package:github_stars/models/owner.dart';
 import 'package:github_stars/models/vo/github_page_vo.dart';
 import 'package:http/http.dart' as http;
 import 'package:dart_json_mapper/dart_json_mapper.dart' show JsonMapper;

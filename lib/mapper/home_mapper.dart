@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:github_stars/models/github_page.dart';
 import 'package:github_stars/models/vo/github_page_vo.dart';
 import 'package:github_stars/models/vo/owner_vo.dart';
