@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_github/home/di/home_module.dart';
 import 'package:flutter_github/home/presentation/home_page.dart';
+import 'package:get_it/get_it.dart';
 
 void main() {
+  GetIt.asNewInstance();
+  HomeModule().provideModule();
   runApp(const MyApp());
 }
 
@@ -19,7 +23,9 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (ctx) => HomePage(),
+          '/': (ctx) => HomePage(
+                cubit: GetIt.I.get(),
+              ),
         });
   }
 }
